@@ -1,0 +1,35 @@
+---
+general:
+  global_stake_currency: BTC
+  threads_recv: 5
+  threads_anal: 2
+  production: false
+  logging: debug
+  exchanges:
+    - bittrex
+
+telegram:
+  enabled: false
+  token: ''
+  chat_id: ''
+
+plugins:
+  ThirtyMin:
+    - 01_strat1
+    - 02_strat2
+  Day:
+    - 01_strat1
+
+schedulers:
+  - ThirtyMin
+  - Day
+
+bittrex:
+  enabled: true
+  short: 'btrx'
+  stake_currency_enabled: true
+  stake_currency: 'BTC'
+  min_price_usd: 0.003
+  max_price_usd: 1
+  blacklist:
+    - NONE

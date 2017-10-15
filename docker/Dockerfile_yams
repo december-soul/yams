@@ -1,0 +1,33 @@
+# FROM debian:8
+FROM python:2.7
+
+RUN apt-get update
+RUN apt-get -y install ntpdate build-essential python-dev gcc automake make python-pip git
+
+RUN mkdir -p /libyams
+COPY libyams /libyams
+RUN pip install -e /libyams
+
+RUN pip install numpy==1.13.1
+
+RUN mkdir -p /build
+COPY docker/ta-lib-0.4.0-src.tar.gz /build
+RUN cd /build; tar xf ta-lib-0.4.0-src.tar.gz
+RUN cd /build/ta-lib; ./configure --prefix=/usr; make; make install
+ENV LD_LIBRARY_PATH /usr/local/lib
+
+ADD reqs_yams.txt /tmp/reqs.txt
+RUN pip install -r /tmp/reqs.txt
+
+RUN mkdir -p /yams
+WORKDIR /yams
+
+COPY config.yml /yams
+COPY docker/start_yams.sh /yams/start.sh
+COPY docker/start_backtesting.sh /yams
+RUN chmod +x /yams/start.sh
+RUN chmod +x /yams/start_backtesting.sh
+
+RUN mkdir -p /data
+
+COPY yams /yams
