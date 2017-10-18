@@ -66,4 +66,4 @@ Feel like you wanna honor my work? That's awesome! Here are the wallets you can 
 
 * BTC: 1DtiU3RXGsNGAdMy3dUuojS1aC5b9Lwhgb
 * ETH: 0xd7e3d15ead57b1d02d96fa1ca34d036274685d38
-* XVG: D7wzNjWrtznvQ5vRgApTsGA4p6c61K7592
+* XVG: DBCX62U3dj95YsLhrMBB91YeVVaQ4tNCGj
