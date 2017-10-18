@@ -65,5 +65,5 @@ Feel like there is a feature missing? I welcome your pull requests! Few pointers
 Feel like you wanna honor my work? That's awesome! Here are the wallets you can send your donation to me:
 
 * BTC: 1DtiU3RXGsNGAdMy3dUuojS1aC5b9Lwhgb
-* ETH: 0xd7e3d15ead57b1d02d96fa1ca34d036274685d38
+* ETH: 0xb42bdbb355feAAc488B70e407273B94e3751141A
 * XVG: DBCX62U3dj95YsLhrMBB91YeVVaQ4tNCGj
