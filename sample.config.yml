@@ -3,7 +3,7 @@ general:
   global_stake_currency: BTC
   threads_recv: 5
   threads_anal: 2
-  production: false
+  production: true
   logging: debug
   exchanges:
     - bittrex
@@ -33,3 +33,6 @@ bittrex:
   max_price_usd: 1
   blacklist:
     - NONE
+
+backtesting:
+  csv_format_enabled: true
