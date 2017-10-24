@@ -179,9 +179,28 @@ class SaveTickerData(threading.Thread):
 
         # if old data exist, merge new data into it
         if os.path.exists(fn):
-            with open(fn, 'r') as jsonfile:
-                old_tickerdata = json.load(jsonfile)
-                jsonfile.close()
+            while True:
+                old_tickerdata = None
+                with open(fn, 'r') as jsonfile:
+                    try:
+                        old_tickerdata = json.load(jsonfile)
+                        jsonfile.close()
+                        break
+                    except Exception as e:
+                        print ("fix broken json file ", fn, " ", e)
+                        readFile = open(fn)
+                        lines = readFile.readlines()
+                        readFile.close()
+                        w = open(fn,'w')
+                        i=-1
+                        while lines[i] != '  }, \n':
+                            i -= 1                            
+                        w.writelines([item for item in lines[:i]])
+                        w.write('  } \n')
+                        w.write('] \n')
+                        w.close()
+                        jsonfile.close()
+
 
             for obj in old_tickerdata:
                 if obj['T'] not in ticker_dict:
